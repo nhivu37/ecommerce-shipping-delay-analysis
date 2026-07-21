@@ -39,5 +39,5 @@ The full analysis is in Ecommerce_Shipping_Analysis.ipynb, desigmed to run in Go
 2. Upload Train.csv(from the Kaggle dataset above) when prompted.
 3. Run all cells sequentially - SQL queries, statistical tests, and models are all self-contained in the notebook using SQLite and scikit-learn.
 
-4. ## Author
-5. Nhi Vu - Business Administrtion (Data Analytics concentration), University of Alabama in Huntsville
+ ## Author
+ Nhi Vu - Business Administrtion (Data Analytics concentration), University of Alabama in Huntsville
