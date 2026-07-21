@@ -1,5 +1,3 @@
-# ecommerce-shipping-delay-analysis
-SQL, Python &amp; statistical analysis of e-commerce shipping delays
 
 ## E-Commerce Shipping Delay Analysis
 End-to-end data analytics project examining what drives late deliveries in an e-commerce shipping dataset, combining SQL, statistical testing, and predictive modeling.
@@ -21,14 +19,14 @@ E-Commerce Shipping Data (Kaggle,~11,000 orders, 12 features)
 2. Statistical Testing - Chi-square tests to confirm which relationships found in SQL are statiistically significant.
 3. Predictive Modeling - Two logistic regression models built and compared to test for data leakage
 
-4. ## Key Findings
-5. 1. Warehouse and shipment mode have no meaningful effect on delivery delays. Late delivery rates were nearly identical across all warehouses (58-60%) and shipment modes (59-60%), confirmed by chi-square tests (p>0.05 for both). These are common;y assumed risk factors that this analysis rules out.
+ ## Key Findings
+ 1. Warehouse and shipment mode have no meaningful effect on delivery delays. Late delivery rates were nearly identical across all warehouses (58-60%) and shipment modes (59-60%), confirmed by chi-square tests (p>0.05 for both). These are common;y assumed risk factors that this analysis rules out.
    2. Discount level is a near-perfect(and likely leaked) predictor of delay. Every single order with a discount above 10% was late (0 exceptions across 2,647 orders), and the chi-square test for this relationship was highly significant (p≈0)/ This pattern most likely reflects discounts being issued after a delay was alreadyknown - e.g.,as compensation - rather than discounts causing delays.
    3. A leakage-aware model retains nearly all predictive power without the leaked feature. Two logistic regression models were compared:
       | Model | Features | Accuracy |
-|---|---|---|
-| A — with leakage | Includes `Discount_offered` | 63.55% |
-| B — realistic | Excludes `Discount_offered` | 63.14% |
+      |---|---|---|
+      | A — with leakage | Includes `Discount_offered` | 63.55% |
+      | B — realistic | Excludes `Discount_offered` | 63.14% |
 
 The 0.4-point gap shows the leakage effect is diluted because the high-discount segment is only ~ 24% of orders. Model B's strongest predictors - weight_in_gms and Customer_care_calls - indicate the dataset contains genuine, non-leaked predictive signal, making it a more trustworthy basis for a production model.
 
